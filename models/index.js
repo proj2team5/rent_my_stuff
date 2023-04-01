@@ -14,7 +14,7 @@ Gear.belongsTo(User, {
 
 User.hasMany(Gear, {
     foreignKey: 'borrower_id',
-    onDelete: 'CASCADE'
+    onDelete: 'NO ACTION'
 });
 
 Gear.belongsTo(User, {
