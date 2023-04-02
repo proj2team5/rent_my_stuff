@@ -28,22 +28,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    borrower_rating: {
-        type: DataTypes.INTEGER,
-        validate: {
-            max: 5,
-            min: 0,
-            isInt: true,
-        },
-    },
-    lender_rating: {
-        type: DataTypes.INTEGER,
-        validate: {
-            max: 5,
-            min: 0,
-            isInt: true,
-        },
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,

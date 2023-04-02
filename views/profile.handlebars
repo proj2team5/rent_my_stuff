@@ -1,0 +1,21 @@
+<div class="test">
+    <p>{{ user.username }}</p>
+    <p>{{ user.email }}</p>
+    <H1>Gear</H1>
+    {{#each user.gears as |gear|}}
+        <p>{{ gear.product_name }}</p>
+        <p>{{ gear.description }}</p>
+        <p>{{ gear.available }}</p>
+    {{/each}}
+    <h1>items lent</h1>
+    {{#each user.items_lent as |loan|}}
+        <p>{{ loan.product_id }}</p>
+        <p>{{ loan.status }}</p>
+    {{/each}}
+    <h1>items borrowed</h1>
+    {{#each user.items_borrowed as |loan|}}
+        <p>{{ loan.product_id }}</p>
+        <p>{{ loan.status }}</p>
+    {{/each}}
+    <p>Logged in: {{ loggedIn }}</p>
+</div>

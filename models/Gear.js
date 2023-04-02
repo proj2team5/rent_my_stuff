@@ -15,6 +15,10 @@ Gear.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
+      description: {
+        type: DataTypes.TEXT,
+        allowNull: false,
+      },
       image_url: {
         type: DataTypes.STRING,
         validate: {
@@ -26,8 +30,11 @@ Gear.init(
         allowNull: false,
       },
       category: {
-        type: DataTypes.ENUM('lenses', 'body','flash','lights'),
+        type: DataTypes.ENUM('LENSES', 'BODY','FLASH','LIGHTS'),
         allowNull: false,
+      },
+      available: {
+        type: DataTypes.BOOLEAN,
       },
       posted_date: {
         type: DataTypes.DATE,
@@ -41,15 +48,15 @@ Gear.init(
           key: 'id',
         },
       },
-      borrower_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'user',
-          key: 'id',
-        },
-      },
     },
     {
+      hooks: {
+        beforeCreate: async (newGearData) => {
+          console.log(newGearData);
+          newGearData.available = 1;
+          return newGearData;
+        },
+      },
       sequelize,
       timestamps: false,
       freezeTableName: true,
