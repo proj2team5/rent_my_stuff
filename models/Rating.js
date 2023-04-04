@@ -18,6 +18,13 @@ Rating.init(
           key: 'id',
         },
       },
+      product_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'gear',
+          key: 'id',
+        },
+      },
       type: {
         type: DataTypes.ENUM('LENDER', 'BORROWER'),
         allowNull: false,
