@@ -1,0 +1,8 @@
+<div class="test">
+    {{#each list as |gear|}}
+        <p>Product name: {{ gear.product_name }}</p>
+        <p>Category: {{ gear.category }}</p>
+        <p>Is it available: {{ gear.available }}</p>
+    {{/each}}
+    <p>Logged in: {{ loggedIn }}</p>
+</div>
