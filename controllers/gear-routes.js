@@ -48,21 +48,23 @@ router.get('/:id', async (req, res) => {
           raw:true,
           where: {
             user_id: gear.owner_id, 
-            type: "LENDER"
+            product_id: req.params.id
           },
         })
 
         if (ratingData.length){
-          rating = ratingData.map(rating => rating.rating).reduce((acc, amount) => acc + amount)/ratingData.length
+          avg_rating = ratingData.map(rating => rating.rating).reduce((acc, amount) => acc + amount)/ratingData.length
         }else{
-          rating = "no ratings"
+          avg_rating = "no ratings"
         }
         
-
+        number_of_reviews = ratingData.length
 
         res.render('gearDetails', {
           gear,
-          rating, 
+          avg_rating,
+          number_of_reviews,
+          ratingData,
           loggedIn: req.session.loggedIn,
         });
       } catch (err) {

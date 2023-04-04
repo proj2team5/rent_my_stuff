@@ -1,9 +1,14 @@
 <div class="test">
+    <h2>Product Details</h2>
     <p>Product name: {{ gear.product_name }}</p>
     <p>Description: {{ gear.description }}</p>
     <p>Is it available: {{ gear.available }}</p>
     <p>daily rate: ${{ gear.cost_per_day }}</p>
     <p>Product Owner: {{ gear.user.username }}</p>
-    <p>Owner's lender rating: {{ rating }}</p>
-    <p>Are you logged in: {{ loggedIn }}</p>
+    <p>Product rating: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
+    <h2>Ratings</h2>
+    {{#each ratingData as |rating|}}
+        <p>Rating: {{ rating.rating }}</p>
+        <p>Comment: {{ rating.comment }}</p>
+    {{/each}}
 </div>
