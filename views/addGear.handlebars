@@ -1,0 +1,30 @@
+<form class="addListing" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label for="product_name">Listing Name:</label>
+        <input class="form-input" type="text" id="product_name" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-input" id="description"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            {{#each categories as |category|}}
+                <option value="{{category}}">{{category}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="cost_per_day">Cost Per Day:</label>
+        <input class="form-input" type="text" id="cost_per_day" />
+    </div>
+    <div class="form-group">
+        <label for="img_file">image:</label>
+        <input type="file" class="form-control" name="img_file" id="img_file">
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn">Add Listing</button>
+    </div>         
+</form>
+<script src="/js/addListing.js"></script>
