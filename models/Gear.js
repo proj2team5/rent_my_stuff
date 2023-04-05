@@ -49,7 +49,6 @@ Gear.init(
     {
       hooks: {
         beforeCreate: async (newGearData) => {
-          console.log(newGearData)
           newGearData.available = 1;
           return newGearData;
         },

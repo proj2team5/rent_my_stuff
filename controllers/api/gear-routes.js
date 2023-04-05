@@ -8,8 +8,8 @@ router.post('/', upload.single('img_file'), async (req, res) => {
   try {
     const newGear = await Gear.create({
       ...req.body,
-      image_url: `/public/images/${req.file.fieldname}`,
-      owner_id: 1,
+      image_url: `/public/images/${req.file.originalname}`,
+      owner_id: req.session.user_id,
     });
     res.status(200).json(newGear);
   } catch (err) {
