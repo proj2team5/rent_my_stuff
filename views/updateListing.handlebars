@@ -1,0 +1,35 @@
+<h2>Update Listing</h2>
+
+<form class="editListing" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="gear-id" value="{{gear.id}}">
+    <div class="form-group">
+        <label for="product_name">Listing Name:</label>
+        <input class="form-input" type="text" id="product_name" value="{{gear.product_name}}" />
+    </div>
+    <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea class="form-input" id="description">{{gear.description}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="category">Category:</label>
+        <select name="category" id="category">
+            {{#each categories as |category|}}
+                <option value="{{category}}">{{category}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="cost_per_day">Cost Per Day:</label>
+        <input class="form-input" type="text" id="cost_per_day" value="{{gear.cost_per_day}}"/>
+    </div>
+    <div class="form-group">
+        <label for="img_file">image:</label>
+        <input type="file" class="form-control" name="img_file" id="img_file" value="{{gear.image_url}}">
+    </div>
+    <div class="form-group">
+        <button id="save-btn" type="submit">Save</button>
+        <button id="delete-btn" type="submit">Delete</button>
+    </div>         
+</form>
+<script src="/js/editListing.js"></script>
+<script src="/js/deleteListing.js"></script>
