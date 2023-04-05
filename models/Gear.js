@@ -21,9 +21,6 @@ Gear.init(
       },
       image_url: {
         type: DataTypes.STRING,
-        validate: {
-            isUrl: true,
-        }
       },
       cost_per_day: {
         type: DataTypes.FLOAT,
@@ -52,7 +49,7 @@ Gear.init(
     {
       hooks: {
         beforeCreate: async (newGearData) => {
-          console.log(newGearData);
+          console.log(newGearData)
           newGearData.available = 1;
           return newGearData;
         },

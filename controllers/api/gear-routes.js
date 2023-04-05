@@ -1,11 +1,15 @@
 const router = require('express').Router();
 const { Gear } = require('../../models');
+const upload = require('../../utils/upload');
 
-router.post('/', async (req, res) => {
+
+router.post('/', upload.single('img_file'), async (req, res) => {
+  console.log({...req.body})
   try {
     const newGear = await Gear.create({
       ...req.body,
-      owner_id: req.session.user_id,
+      image_url: `/public/images/${req.file.fieldname}`,
+      owner_id: 1,
     });
     res.status(200).json(newGear);
   } catch (err) {

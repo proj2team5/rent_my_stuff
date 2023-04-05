@@ -3,9 +3,12 @@ const { User, Gear, Rating  } = require('../models');
 const withAuth = require('../utils/auth'); //authentication middleware
 const sequelize = require('../config/connection');
 
-router.get('/add',withAuth, async (req, res) => {
+
+router.get('/add', async (req, res) => {
+    categories = Gear.getAttributes().category.values
     try {
-      res.render('addGear', { 
+      res.render('addGear', {
+        categories, 
         loggedIn: req.session.loggedIn
       });
     } catch (err) {
