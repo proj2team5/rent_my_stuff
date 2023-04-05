@@ -113,7 +113,7 @@ const geardata = [
         product_name: 'Aputure LS 60X Bi-Color LED Light',
         description: "The Light Storm 60x is an expanded bi-colour (2700K~6500K) adjustable focusing LED light, which uses precision condenser lens optics to allow users to internally adjust the spot/flood beam angle between 15°~45°.",
         image_url: 'Aputure LS 60X Bi-Color LED Light.webp',
-        cost_per_day: 265.00,
+        cost_per_day: 65.00,
         category: 'LIGHTS',
         available: true,
         owner_id: 4,
@@ -121,7 +121,7 @@ const geardata = [
     
 ];
 
-const seedGear = () => User.bulkCreate(geardata, {
+const seedGear = () => Gear.bulkCreate(geardata, {
     individualHooks: true,
     returning: true,
 });
