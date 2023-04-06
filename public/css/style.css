@@ -1,6 +1,6 @@
 footer {
     text-align: center;
-    background-color: black;
+    background-color: rgb(70, 61, 61);
     color: white;
     height: 5rem;
     display: flex;
@@ -45,6 +45,7 @@ li a{
   padding:0.5rem 2rem;
   text-decoration: none;
   color: white;
+  margin-right: 2%;
 }
 
 li a:hover{

@@ -3,9 +3,12 @@ const { User, Gear, Rating  } = require('../models');
 const withAuth = require('../utils/auth'); //authentication middleware
 const sequelize = require('../config/connection');
 
-router.get('/add',withAuth, async (req, res) => {
+
+router.get('/add', async (req, res) => {
+    categories = Gear.getAttributes().category.values
     try {
-      res.render('addGear', { 
+      res.render('addGear', {
+        categories, 
         loggedIn: req.session.loggedIn
       });
     } catch (err) {
@@ -15,11 +18,13 @@ router.get('/add',withAuth, async (req, res) => {
 });
 
 router.get('/update/:id',withAuth, async (req, res) => {
+    categories = Gear.getAttributes().category.values
     try {
       const gearData = await Gear.findByPk(req.params.id); //get gear by id
       const gear = gearData.get({ plain: true });
       if (gear.owner_id === req.session.user_id){ //ensure that the user is indeed the owner of the gear
-        res.render('updateGear', { 
+        res.render('updateGear', {
+            categories, 
             gear, 
             loggedIn: req.session.loggedIn
         });

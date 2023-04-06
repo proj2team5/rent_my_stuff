@@ -1,10 +1,14 @@
 const router = require('express').Router();
 const { Gear } = require('../../models');
+const upload = require('../../utils/upload');
 
-router.post('/', async (req, res) => {
+
+router.post('/', upload.single('img_file'), async (req, res) => {
+  console.log({...req.body})
   try {
     const newGear = await Gear.create({
       ...req.body,
+      image_url: `/images/${req.file.originalname}`,
       owner_id: req.session.user_id,
     });
     res.status(200).json(newGear);
@@ -14,9 +18,21 @@ router.post('/', async (req, res) => {
 });
 
 
-router.put('/:id', async (req, res) => {
+router.put('/:id',upload.single('img_file'), async (req, res) => {
+  console.log(req.session.user_id);
+  console.log(`request body = `, req);
   try {
-    const gearData = await Gear.update(req.body,
+    const gearData = await Gear.findByPk(req.params.id)
+    if (req.file.originalname) {
+      image_url = `/images/${req.file.originalname}`
+    } else{
+      image_url = gearData.image_url
+    }
+    const newGearData = await Gear.update(
+      {
+      ...req.body,
+      image_url: `/images/${req.file.originalname}`
+      },
       {
       where: {
         id: req.params.id,
@@ -24,11 +40,11 @@ router.put('/:id', async (req, res) => {
       },
     });
 
-    if (!gearData) {
+    if (!newGearData) {
       res.status(404).json({ message: 'There is no camera gear matching this ID!' });
       return;
     }
-    res.status(200).json(gearData);
+    res.status(200).json(newGearData);
   } catch (err) {
     res.status(500).json(err);
   }

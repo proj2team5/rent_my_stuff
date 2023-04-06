@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User, Gear, Rating, Loan  } = require('../models');
-
-router.get('/', async (req, res) => {
+const withAuth = require('../utils/auth');
+router.get('/', withAuth,async (req, res) => {
     console.log(req.session.user_id)
     try {
         const userData = await User.findByPk(req.session.user_id, { //get user data for the current logged in user
@@ -100,7 +100,7 @@ router.get('/signup', (req, res) => {
     res.redirect('/');
     return;
   }
-  res.render('signup');
+  res.render('signUp');
 });
   
 
