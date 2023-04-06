@@ -22,13 +22,13 @@
 
 <!-- GREETING SECTION-->
 <div>
-    <h2>Welcome, {{ user.username }}</h2>
+    <h2 class="tracking-widest font-serif text-3xl">Welcome, {{ user.username }}</h2>
 </div>
 
 <!-- REQUEST NOTIFICATION SECTION-->
 <div class="view-request">
     <p>You've got *#* new borrow request(s)</p>
-    <button id="view-request" type="submit">View Request</button>
+    <button class="px-2 py-1 bg-[#44B09E] text-white rounded-sm" id="view-request" type="submit">View Requests</button>
 </div>
 
 <!-- REVIEW REQUESTS SECTION-->
@@ -44,7 +44,7 @@
     <h3>My Listings</h3>
     <!-- ADD NEW LISTING -->
     <div>
-    <a href="/gear/add">Add New Listing</a>
+    <a class="px-2 py-1 bg-[#44B09E] text-white rounded-sm" href="/gear/add">Add New Listing</a>
 </div>
     <!-- LISTING CARD -->
      {{#each user.gears as |listing|}}

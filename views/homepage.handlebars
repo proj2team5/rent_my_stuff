@@ -1,14 +1,19 @@
-<div class="row">
-    {{#each list as |gear|}}
-    <div class="col-md-3">
-        <div class="card">
-            <img class="card-img-top" src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ gear.product_name }}</h5>
-                <p>${{ gear.cost_per_day }} per day</p>
-                <a href="/gear/{{ gear.id }}" class="btn btn-primary">View Details</a>
-            </div>
-        </div>
+<div class="flex flex-row flex-wrap justify-center">
+  {{#each list as |gear|}}
+    <div
+      class="bg-white m-4 gap-1 rounded-xl shadow-lg w-[40%] flex flex-col items-center my-4 py-4"
+    >
+
+      <img
+        class="card-img-top w-20"
+        src="{{gear.image_url}}"
+        alt="{{gear.product_name}}"
+      />
+
+      <h5 class="card-title font-semibold">{{gear.product_name}}</h5>
+      <p>${{gear.cost_per_day}}/day</p>
+      <a href="/gear/{{gear.id}}" class="bg-[#44B09E] px-4 py-1 mt-4 hover:shadow-sm hover:bg-emerald-400 rounded-sm text-white">View Details</a>
+
     </div>
-    {{/each}}
+  {{/each}}
 </div>
