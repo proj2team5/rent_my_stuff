@@ -1,14 +1,14 @@
-<div class="test">
-    <h2>Product Details</h2>
-    <p>Product name: {{ gear.product_name }}</p>
-    <p>Description: {{ gear.description }}</p>
-    <p>Is it available: {{ gear.available }}</p>
-    <p>daily rate: ${{ gear.cost_per_day }}</p>
-    <p>Product Owner: {{ gear.user.username }}</p>
-    <p>Product rating: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
-    <h2>Ratings</h2>
+<div class="flex flex-col gap-2 m-4">
+    <h2 class="text-2xl tracking-wider font">Product Details</h2>
+    <p><span class="tracking-wider font-semibold">Product name: </span> {{ gear.product_name }}</p>
+    <p><span class="tracking-wider font-semibold">Description: </span> {{ gear.description }}</p>
+    <p><span class="tracking-wider font-semibold">Is it available: </span> {{ gear.available }}</p>
+    <p><span class="tracking-wider font-semibold">Daily Rate: </span>: ${{ gear.cost_per_day }}</p>
+    <p><span class="tracking-wider font-semibold">Product owner: </span> {{ gear.user.username }}</p>
+    <p><span class="tracking-wider font-semibold">Product rating: </span>: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
     {{#each ratingData as |rating|}}
-        <p>Rating: {{ rating.rating }}</p>
-        <p>Comment: {{ rating.comment }}</p>
+    <h2>Ratings</h2>
+        <p><span class="tracking-wider font-semibold">Rating: </span> {{ rating.rating }}</p>
+        <p><span class="tracking-wider font-semibold">Comment: </span> {{ rating.comment }}</p>
     {{/each}}
 </div>
