@@ -19,19 +19,22 @@ router.post('/', upload.single('img_file'), async (req, res) => {
 
 
 router.put('/:id',upload.single('img_file'), async (req, res) => {
-  console.log(req.session.user_id);
-  console.log(`request body = `, req);
+
   try {
     const gearData = await Gear.findByPk(req.params.id)
-    if (req.file.originalname) {
+    const gear = gearData.get({ plain: true });
+    if (req.body.img_file != 'undefined') {
+      console.log('I AM HERE!!!!!!');
       image_url = `/images/${req.file.originalname}`
     } else{
-      image_url = gearData.image_url
+      console.log(gear);
+      image_url = gear.image_url
+      console.log(image_url);
     }
     const newGearData = await Gear.update(
       {
       ...req.body,
-      image_url: `/images/${req.file.originalname}`
+      image_url: image_url
       },
       {
       where: {
