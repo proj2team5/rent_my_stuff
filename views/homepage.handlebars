@@ -1,8 +1,14 @@
-<div class="test">
+<div class="row">
     {{#each list as |gear|}}
-        <p>Product name: {{ gear.product_name }}</p>
-        <p>Category: {{ gear.category }}</p>
-        <p>Is it available: {{ gear.available }}</p>
+    <div class="col-md-3">
+        <div class="card">
+            <img class="card-img-top" src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ gear.product_name }}</h5>
+                <p>${{ gear.cost_per_day }} per day</p>
+                <a href="/gear/{{ gear.id }}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
     {{/each}}
-    <p>Logged in: {{ loggedIn }}</p>
 </div>
