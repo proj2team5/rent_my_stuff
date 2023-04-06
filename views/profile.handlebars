@@ -34,8 +34,10 @@
 <!-- REVIEW REQUESTS SECTION-->
 <div class="request" style="display: none;">
     <!-- REQUEST CARD SECTION-->
-    {{#each requests as |request|}}
+    {{#each user.items_lent as |lent|}}
+    {{#if (check_requested lent.status)}}
     {{> request }}
+    {{/if}}
     {{/each}}
 </div>
 
