@@ -11,7 +11,21 @@ router.get('/', withAuth,async (req, res) => {
             },
             {
               model: Loan,
-              as: "items_lent"
+              as: "items_lent",
+              include: [ 
+                {
+                  model: User,
+                  as: "borrower",
+                  include: [ 
+                    {
+                      model: Rating
+                    } 
+                  ]
+                },
+                {
+                  model: Gear,
+                }
+              ],
             },
             {
               model: Loan,

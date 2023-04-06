@@ -20,30 +20,33 @@
     <p>Logged in: {{ loggedIn }}</p>
 </div> --}}
 
-<!-- GREETING SECTION-->
-<div>
-    <h2>Welcome, {{ user.username }}</h2>
-</div>
+<div class="container my-4 mx-auto">
+    <!-- GREETING SECTION-->
+    <div>
+        <h2>Welcome, {{ user.username }}</h2>
+    </div>
 
-<!-- REQUEST NOTIFICATION SECTION-->
-<div class="view-request">
-    <p>You've got *#* new borrow request(s)</p>
-    <button id="view-request" type="submit">View Request</button>
-</div>
+    <!-- REQUEST NOTIFICATION SECTION-->
+    <div class="view-request">
+        <p>You've got *#* new borrow request(s)</p>
+        <button id="view-request" type="submit">View Request</button>
+    </div>
+
 
 <!-- REVIEW REQUESTS SECTION-->
 <div class="request" style="display: none;">
     <!-- REQUEST CARD SECTION-->
-    {{#each requests as |request|}}
+    {{#each user.items_lent as |lent|}}
+    {{#if (check_requested lent.status)}}
     {{> request }}
+    {{/if}}
     {{/each}}
 </div>
 
-<!-- MY LISTINGS SECTION-->
-<div>
-    <h3>My Listings</h3>
-    <!-- ADD NEW LISTING -->
+
+    <!-- MY LISTINGS SECTION-->
     <div>
+
         <a href="/gear/add">Add New Listing</a>
     </div>
     <div>
@@ -52,18 +55,17 @@
         {{> profile-listing }}
         {{/each}}
     </div>
+
 </div>
 
-<!-- ITEMS RENTED SECTION-->
-<div>
-    <h3>Items Rented</h3>
-    <!-- RENTED ITEM CARD -->
+
+    <!-- ITEMS RENTED SECTION-->
     <div>
         <div>
             {{#each user.gears as |rented|}}
             {{> profile-rented}}
             {{/each}}
+
         </div>
     </div>
 </div>
-<script src="/js/view-request.js"></script>
