@@ -44,12 +44,14 @@
     <h3>My Listings</h3>
     <!-- ADD NEW LISTING -->
     <div>
-    <a href="/gear/add">Add New Listing</a>
-</div>
-    <!-- LISTING CARD -->
-     {{#each user.gears as |listing|}}
-    {{> profile-listing }}
-    {{/each}}
+        <a href="/gear/add">Add New Listing</a>
+    </div>
+    <div>
+        <!-- LISTING CARD -->
+        {{#each user.gears as |listing|}}
+        {{> profile-listing }}
+        {{/each}}
+    </div>
 </div>
 
 <!-- ITEMS RENTED SECTION-->
@@ -57,10 +59,10 @@
     <h3>Items Rented</h3>
     <!-- RENTED ITEM CARD -->
     <div>
-        <img src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
         <div>
-            <h5>{{ gear.product_name }}</h5>
-            <a href="/gear/{{ gear.id }}" class="btn btn-primary">View Details</a>
+            {{#each user.gears as |rented|}}
+            {{> profile-rented}}
+            {{/each}}
         </div>
     </div>
 </div>

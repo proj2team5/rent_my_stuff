@@ -1,5 +1,23 @@
-<div class="test">
+{{!-- <div class="test">
     {{ user }}
     {{ rating_type }}
     {{ loggedIn }}
-</div>
+</div> --}}
+
+<form class="new-rating-form">
+    <input type="hidden" name="post-id" value="{{gear.id}}">
+    <label for="category">Rating:</label>
+    <select name="rating" id="rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <label for="comment">Comment:</label>
+    <textarea id="comment" name="comment" required></textarea>
+    <div>
+        <button id="save-rating" type="submit">Save</button>
+    </div>
+</form>
+<script src="/js/addRating.js"></script>
