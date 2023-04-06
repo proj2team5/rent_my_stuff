@@ -7,7 +7,7 @@ const signupFormHandler = async(event) => {
 
   
     if (username && email && password) {
-        const response = await fetch('/api/user/signup', {
+        const response = await fetch('/api/users/', {
             method: 'POST',
             body: JSON.stringify({ username, email, password }),
             headers: { 'Content-Type': 'application/json' },
@@ -15,7 +15,7 @@ const signupFormHandler = async(event) => {
 
         if (response.ok) {
             alert('You have signed up!')
-            document.location.replace('/login');
+            document.location.replace('/');
         } else {
             alert('Failed to sign up.');
         }

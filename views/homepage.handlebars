@@ -5,8 +5,8 @@
             <img class="card-img-top" src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
             <div class="card-body">
                 <h5 class="card-title">{{ gear.product_name }}</h5>
-                <p class="card-text">{{ gear.description }}</p>
-                <a href="/gear/{{ gear._id }}" class="btn btn-primary">View Details</a>
+                <p>${{ gear.cost_per_day }} per day</p>
+                <a href="/gear/{{ gear.id }}" class="btn btn-primary">View Details</a>
             </div>
         </div>
     </div>
