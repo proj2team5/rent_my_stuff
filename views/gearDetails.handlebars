@@ -1,14 +1,22 @@
-<div class="test">
-    <h2>Product Details</h2>
-    <p>Product name: {{ gear.product_name }}</p>
-    <p>Description: {{ gear.description }}</p>
-    <p>Is it available: {{ gear.available }}</p>
-    <p>daily rate: ${{ gear.cost_per_day }}</p>
-    <p>Product Owner: {{ gear.user.username }}</p>
-    <p>Product rating: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
-    <h2>Ratings</h2>
-    {{#each ratingData as |rating|}}
-        <p>Rating: {{ rating.rating }}</p>
-        <p>Comment: {{ rating.comment }}</p>
-    {{/each}}
+{{!-- Showcasing details of the selected gear --}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ gear.image_url }}" alt="{{ gear.product_name }}" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h2>Product Details</h2>
+            <p>Product name: {{ gear.product_name }}</p>
+            <p>Description: {{ gear.description }}</p>
+            <p>Is it available: {{ gear.available }}</p>
+            <p>Daily rate: ${{ gear.cost_per_day }}</p>
+            <p>Product Owner: {{ gear.user.username }}</p>
+            <p>Product Rating: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
+            <h2>Ratings</h2>
+            {{#each ratingData as |rating|}}
+            <p>Rating: {{ rating.rating }}</p>
+            <p>Comment: {{ rating.comment }}</p>
+            {{/each}}
+        </div>
+    </div>
 </div>

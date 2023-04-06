@@ -20,48 +20,49 @@
     <p>Logged in: {{ loggedIn }}</p>
 </div> --}}
 
-<!-- GREETING SECTION-->
-<div>
-    <h2>Welcome, {{ user.username }}</h2>
-</div>
-
-<!-- REQUEST NOTIFICATION SECTION-->
-<div class="view-request">
-    <p>You've got *#* new borrow request(s)</p>
-    <button id="view-request" type="submit">View Request</button>
-</div>
-
-<!-- REVIEW REQUESTS SECTION-->
-<div class="request" style="display: none;">
-    <!-- REQUEST CARD SECTION-->
-    {{#each requests as |request|}}
-    {{> request }}
-    {{/each}}
-</div>
-
-<!-- MY LISTINGS SECTION-->
-<div>
-    <h3>My Listings</h3>
-    <!-- ADD NEW LISTING -->
+<div class="container my-4 mx-auto">
+    <!-- GREETING SECTION-->
     <div>
-    <a href="/gear/add">Add New Listing</a>
-</div>
-    <!-- LISTING CARD -->
-     {{#each user.gears as |listing|}}
-    {{> profile-listing }}
-    {{/each}}
-</div>
+        <h2>Welcome, {{ user.username }}</h2>
+    </div>
 
-<!-- ITEMS RENTED SECTION-->
-<div>
-    <h3>Items Rented</h3>
-    <!-- RENTED ITEM CARD -->
+    <!-- REQUEST NOTIFICATION SECTION-->
+    <div class="view-request">
+        <p>You've got *#* new borrow request(s)</p>
+        <button id="view-request" type="submit">View Request</button>
+    </div>
+
+    <!-- REVIEW REQUESTS SECTION-->
+    <div class="request" style="display: none;">
+        <!-- REQUEST CARD SECTION-->
+        {{#each requests as |request|}}
+        {{> request }}
+        {{/each}}
+    </div>
+
+    <!-- MY LISTINGS SECTION-->
     <div>
-        <img src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
+        <h3>My Listings</h3>
+        <!-- ADD NEW LISTING -->
         <div>
-            <h5>{{ gear.product_name }}</h5>
-            <a href="/gear/{{ gear.id }}" class="btn btn-primary">View Details</a>
+            <a href="/gear/add">Add New Listing</a>
+        </div>
+        <!-- LISTING CARD -->
+        {{#each user.gears as |listing|}}
+        {{> profile-listing }}
+        {{/each}}
+    </div>
+
+    <!-- ITEMS RENTED SECTION-->
+    <div>
+        <h3>Items Rented</h3>
+        <!-- RENTED ITEM CARD -->
+        <div>
+            <img src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
+            <div>
+                <h5>{{ gear.product_name }}</h5>
+                <a href="/gear/{{ gear.id }}" class="btn btn-primary">View Details</a>
+            </div>
         </div>
     </div>
 </div>
-<script src="/js/view-request.js"></script>
