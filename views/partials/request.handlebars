@@ -1,5 +1,5 @@
 <div>
-    <p>{{ borrower.username }} with borrower rating of {{get_average_rating borrower.ratings}} is requesting to borrow {{ gear.product_name }}</p>
-    <button id="accept" type="submit">Accept</button>
-    <button id="decline" type="submit">Decline</button>
+    <p>{{ borrower.username }} with {{#if borrower.ratings}} borrower rating of {{get_average_rating borrower.ratings}}{{else}}no borrowing history{{/if}} is requesting to borrow {{ gear.product_name }}</p>
+    <button class="acceptButton" data-id="{{id}}" data-gear="{{product_id}}" type="submit">Accept</button>
+    <button class="declineButton" data-id="{{id}}" data-gear="{{product_id}}"  type="submit">Decline</button>
 </div>

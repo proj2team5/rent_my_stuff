@@ -4,7 +4,6 @@ const upload = require('../../utils/upload');
 
 
 router.post('/', upload.single('img_file'), async (req, res) => {
-  console.log({...req.body})
   try {
     const newGear = await Gear.create({
       ...req.body,
@@ -19,18 +18,21 @@ router.post('/', upload.single('img_file'), async (req, res) => {
 
 
 router.put('/:id',upload.single('img_file'), async (req, res) => {
-
+  console.log(req.body);
+  console.log(req.session.user_id)
   try {
     const gearData = await Gear.findByPk(req.params.id)
     const gear = gearData.get({ plain: true });
-    if (req.body.img_file != 'undefined') {
-      console.log('I AM HERE!!!!!!');
-      image_url = `/images/${req.file.originalname}`
-    } else{
-      console.log(gear);
+    try {
+      if (req.body.img_file && req.body.img_file != 'undefined') {
+        image_url = `/images/${req.file.originalname}`
+      } else{
+        image_url = gear.image_url
+      }
+    }catch (err) {
       image_url = gear.image_url
-      console.log(image_url);
     }
+    console.log(image_url)
     const newGearData = await Gear.update(
       {
       ...req.body,

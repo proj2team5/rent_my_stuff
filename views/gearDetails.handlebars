@@ -9,14 +9,18 @@
             <p>Product name: {{ gear.product_name }}</p>
             <p>Description: {{ gear.description }}</p>
             <p>Is it available: {{ gear.available }}</p>
-            <p>Daily rate: ${{ gear.cost_per_day }}</p>
+            <p id="costPerDay" data-amount={{ gear.cost_per_day }}>Daily rate: ${{ gear.cost_per_day }}</p>
             <p>Product Owner: {{ gear.user.username }}</p>
             <p>Product Rating: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
+            {{#if  gear.available }}
+            <button id="request-borrow" data-id="{{gear.id}}" data-owner="{{gear.owner_id}}" type="submit">Request Borrow</button>
+            {{/if}}
             <h2>Ratings</h2>
             {{#each ratingData as |rating|}}
-            <p>Rating: {{ rating.rating }}</p>
-            <p>Comment: {{ rating.comment }}</p>
+                {{> detailRating }}
             {{/each}}
         </div>
     </div>
 </div>
+
+<script src="/js/requestBorrow.js"></script>

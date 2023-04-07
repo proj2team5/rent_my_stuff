@@ -48,7 +48,6 @@ router.get('/:id', async (req, res) => {
           ],
         });
         const gear = gearData.get({ plain: true });
-
         const ratingData = await Rating.findAll({ 
           raw:true,
           where: {
@@ -56,7 +55,6 @@ router.get('/:id', async (req, res) => {
             product_id: req.params.id
           },
         })
-
         if (ratingData.length){
           avg_rating = ratingData.map(rating => rating.rating).reduce((acc, amount) => acc + amount)/ratingData.length
         }else{
