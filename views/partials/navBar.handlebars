@@ -1,35 +1,30 @@
-{{!-- This is the navigation bar partial. --}}
 <nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="container-fluid">
-        <div class="d-flex">
-            <div class="p-2">
-                <a class="navbar-brand" href="/">
-                    <img class="logo img-fluid" src="/images/cameraShare_logo.png" alt="logo"
-                        style="width: 200px; height: 200px;">
-                </a>
-            </div>
-            <div class="navbar-brand d-flex justify-content-center">
-                <h1>Share camGear</h1>
-            </div>
+    <div class="container-fluid d-flex align-items-center">
+        <div class="p-2">
+            <a class="navbar-brand" href="/">
+                <img class="logo img-fluid" src="/images/cameraShare_logo.png" alt="logo"
+                    style="width: 200px; height: 200px;">
+            </a>
         </div>
-        <div class="d-flex">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/users">My Profile</a>
-                </li>
-                {{#if loggedIn}}
-                <li class="nav-item">
-                    <button id="logout" class="btn btn-danger" id="logout">Logout</button>
-                </li>
-                {{else}}
-                <li class="nav-item">
-                    <a id="login" class="btn btn-primary" href="/users/login">Login</a>
-                </li>
-                {{/if}}
-            </ul>
+        <div class="navbar-brand d-flex justify-content-center flex-grow-1">
+            <h1>Share <span class="camGear">camGear</span></h1>
         </div>
     </div>
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item flex-fill">
+            <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item flex-fill">
+            <a class="nav-link" href="/users">Profile</a>
+        </li>
+        {{#if loggedIn}}
+        <li class="nav-item flex-fill">
+            <button id="logout" class="login-link btn btn-danger">Logout</button>
+        </li>
+        {{else}}
+        <li class="nav-item flex-fill">
+            <a id="login" class="nav-link login-link btn btn-primary" href="/users/login">Login</a>
+        </li>
+        {{/if}}
+    </ul>
 </nav>

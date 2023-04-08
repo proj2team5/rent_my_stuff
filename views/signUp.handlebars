@@ -1,34 +1,48 @@
 <!--Sign Up-->
-<div class="w-50 col-md-8 mx-auto">
+<div class="row">
+    <div class="w-50 col-md-8 mx-auto signupBackground">
+        <h2 id="page-title">Sign up</h2>
 
-    <h2 id="page-title">Sign up</h2>
+        <form class="form signup-form">
 
-    <form class="form signup-form">
+            <div class="form-group mt-3">
+                <div class="input-group align-items-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg rounded-pill" type="text" id="username-signup"
+                        placeholder="Username" />
+                </div>
+            </div>
 
-        <div class="form-group mt-3">
-            <label for="username-signup">Username:</label>
-            <input class="form-input" type="text" id="username-signup" />
-        </div>
+            <div class="form-group mt-3">
+                <div class="input-group align-items-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg rounded-pill" type="text" id="email-signup"
+                        placeholder="Email" />
+                </div>
+            </div>
 
-        <div class="form-group mt-3">
-            <label for="email-signup">Email:</label>
-            <input class="form-input" type="text" id="email-signup" />
-        </div>
+            <div class="form-group mt-3">
+                <div class="input-group align-items-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg rounded-pill" type="password" id="password-signup"
+                        placeholder="Password" />
+                </div>
+                <small class="passChar">Password must be atleast 7 characters long.</small>
+            </div>
 
-        <div class="form-group mt-3">
-            <label for="password-login">Password:</label>
-            <input class="form-input" type="password" id="password-signup" />
-            <small class="text-muted">Password must be at least 7 characters long.</small>
-        </div>
+            <div class="form-group mt-3">
+                <button id="signup" class="btn btn-primary" type="submit">Register</button>
+            </div>
 
-        <div class="form-group mt-3">
-            <button id="login" class="btn btn-primary" type="submit">Register</button>
-        </div>
+        </form>
 
-    </form>
+    </div>
 
+    <script src="/js/signup.js"></script>
 </div>
-
-</div>
-
-<script src="/js/signup.js"></script>

@@ -1,0 +1,9 @@
+<div class="col-md-3 mb-4">
+    <div class="card h-100">
+        <img class="card-img-top" src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
+        <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ gear.product_name }}</h5>
+            <button data-id="{{id}}" data-gear="{{gear.id}}" data-borrower="{{borrower_id}}" class="btn btn-primary confirmButton">Confirm Return</button>
+        </div>
+    </div>
+</div>

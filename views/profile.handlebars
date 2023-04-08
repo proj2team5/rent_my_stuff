@@ -20,52 +20,77 @@
     <p>Logged in: {{ loggedIn }}</p>
 </div> --}}
 
-<div class="container my-4 mx-auto">
+<div class="container my-4 mx-auto myProfile">
     <!-- GREETING SECTION-->
-    <div>
+    <div class="text-center">
         <h2>Welcome, {{ user.username }}</h2>
     </div>
 
     <!-- REQUEST NOTIFICATION SECTION-->
     <div class="view-request">
-        <p>You've got *#* new borrow request(s)</p>
+        <p>You've got {{count_request user.items_lent}} new borrow request(s)</p>
+        {{#if (count_request user.items_lent)}}
         <button id="view-request" type="submit">View Request</button>
+        {{/if}}
     </div>
 
 
-<!-- REVIEW REQUESTS SECTION-->
-<div class="request" style="display: none;">
-    <!-- REQUEST CARD SECTION-->
-    {{#each user.items_lent as |lent|}}
-    {{#if (check_requested lent.status)}}
-    {{> request }}
-    {{/if}}
-    {{/each}}
-</div>
-
-
-    <!-- MY LISTINGS SECTION-->
-    <div>
-
-        <a href="/gear/add">Add New Listing</a>
-    </div>
-    <div>
-        <!-- LISTING CARD -->
-        {{#each user.gears as |listing|}}
-        {{> profile-listing }}
+    <!-- REVIEW REQUESTS SECTION-->
+    <div class="row mx-auto card-deck request" style="display: none;">
+        <!-- REQUEST CARD SECTION-->
+        <h3>Requests</h3>
+        {{#each user.items_lent as |lent|}}
+        {{#if (check_requested lent.status)}}
+        {{> request }}
+        {{/if}}
         {{/each}}
     </div>
 
-</div>
+    <hr>
 
-
-    <!-- ITEMS RENTED SECTION-->
+    <!-- MY LISTINGS SECTION-->
     <div>
-        <div>
-            {{#each user.gears as |rented|}}
-            {{> profile-rented}}
+        <a href="/gear/add">Add New Listing</a>
+    </div>
+    <div class="container">
+        <div class="row mx-auto card-deck">
+            <!-- LISTING CARD -->
+            {{#each user.gears as |listing|}}
+            {{> profile-listing }}
             {{/each}}
-
         </div>
     </div>
+
+    <hr>
+
+    <!-- ITEMS RENTED SECTION-->
+    <div class="container">
+        <h3>Items Borrowed</h3>
+        <div class="row mx-auto card-deck">
+            {{#each user.items_borrowed as |rented|}}
+            {{#unless (check_returned rented.status)}}
+            {{> profile-rented}}
+            {{/unless}}
+            {{/each}}
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="container">
+        <h3>Confirm Returns</h3>
+        <div class="row mx-auto card-deck">
+            {{#each user.items_lent as |lent|}}
+            {{#if (check_returned lent.status)}}
+            {{> profile-lent}}
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
 </div>
+
+<script src="/js/view-request.js"></script>
+<script src="/js/handleRequest.js"></script>
+<script src="/js/returnItem.js"></script>
+<script src="/js/confirm.js"></script>

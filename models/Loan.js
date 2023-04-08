@@ -23,7 +23,7 @@ Loan.init(
         allowNull: false,
       },
       status: {
-        type: DataTypes.ENUM('REQUESTED', 'SENT','DENIED','RECEIVED','RETURNING', 'RETURNED'),
+        type: DataTypes.ENUM('REQUESTED', 'DENIED','RECEIVED','RETURNED'),
         allowNull: false,
       },
       received_date: {

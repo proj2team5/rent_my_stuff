@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { User, Gear  } = require('../models');
 
 router.get('/', async (req, res) => {
+    
     try {
       if (req.query.filter) {
         var listings = await Gear.findAll({
@@ -13,7 +14,10 @@ router.get('/', async (req, res) => {
           ],
           where: {
             category: req.query.filter
-          }
+          },
+          order: [
+            ['posted_date', 'DESC'],
+          ]
         });
       }else{
         var listings = await Gear.findAll({
@@ -23,8 +27,11 @@ router.get('/', async (req, res) => {
               attributes: ['username'],
             },
           ],
+          order: [
+            ['posted_date', 'DESC'],
+          ]
         });
-      };
+      }
   
       const list = listings.map((gear) =>
         gear.get({ plain: true })

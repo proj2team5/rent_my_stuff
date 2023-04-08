@@ -1,56 +1,168 @@
-footer {
-    text-align: center;
-    background-color: rgb(70, 61, 61);
-    color: white;
-    height: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  
-nav{
-  background-color: slategray;
-  padding-left: 7vw;
-  padding-right: 7vw;
-  display: flex;
-  justify-content: space-between;
+* {
+  box-sizing: border-box;
 }
 
-#companyDetails{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-}
-
-#companyDetails img{
-  height: 4rem;
-}
-#companyDetails p{
-  margin: 0;
+body,
+html {
+  height: 100%;
   padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  background-image: linear-gradient(180deg, #20caf5, #5a78f0, #9c37f5, #9022f0 );
+  background-attachment: fixed;
 }
 
-ul{
-  overflow: hidden;
-  list-style: none;
+p {
+  font-weight: bold;
 }
 
-li{
-  float: left;
+label {
+  font-weight: bold;
 }
-li a{
-  display: block;
-  padding:0.5rem 2rem;
-  text-decoration: none;
+
+/* Navbar Styling ------------------------------------------------------------------------------*/
+.navbar {
+  background-color: #36393f !important;
+  padding-bottom: 90px;
+  margin-bottom: 60px;
+  /* Set the navbar background color to a dark grey */
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  /* Set the color of the navbar links to white */
+  font-size: 24px;
+  /* increase font size */
+  margin-right: 20px;
+  /* add margin to the right */
+}
+
+/* Navbar link hover */
+.navbar-nav .nav-link:hover {
+  color: rgb(98, 0, 128)!important;
+}
+
+/* font of company name */
+.navbar-brand h1 {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+}
+
+/* Box around camGear */
+.camGear {
+  background-color: rgb(73, 1, 1);
   color: white;
-  margin-right: 2%;
+  padding: 0.2em 0.5em;
+  border-radius: 0.25em;
+  font-size: 60px;
 }
 
-li a:hover{
-  border-radius: 10px;
-  cursor: pointer;
-  background-color: white;
-  color: slategrey;
+/* Adjust font family and weight */
+.navbar-brand h1 {
+  font-family: 'Kanit', sans-serif;
+  color: white;
+  font-weight: 600;
+}
+
+/* Adjust font color */
+.navbar-brand h1 span {
+  color: white;
+  font-weight: 600;
+}
+
+.navbar-nav .login-link {
+  font-size: 24px;
+  /* increase font size */
+  margin-right: 20px;
+  /* add margin to the right */
+}
+
+/* Footer Styling ------------------------------------------------------------------------------*/
+.footer{
+  color: aliceblue;
+  margin-top: 12%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  background-color: #36393f !important;
+}
+
+
+/* Homepage Styling ------------------------------------------------------------------------------*/
+
+/* Latest Additions Tag */
+.additions {
+  background-color: rgb(73, 1, 1);
+  font-family: 'Kanit', sans-serif;
+    color: white;
+    padding: 0.2em 0.5em;
+    border-radius: 0.25em;
+}
+
+/* color for card */
+.homeProducts .card {
+  background: linear-gradient(135deg, #e6dada 30%, rgb(121, 121, 121) 100%);
+}
+
+/* card transition hover */
+.card {
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* login ------------------------------------------------------------------------------*/
+
+/* Increase icon size */
+.input-group .input-group-prepend .input-group-text i {
+  font-size: 1.3rem;
+}
+
+/* Add margin to space out icons from textboxes */
+.input-group .input-group-prepend .input-group-text {
+  margin-right: 10px;
+}
+
+/* Add margin to the left of the placeholder text */
+.form-control::placeholder {
+  margin-left: 3rem;
+}
+
+/* Style the input boxes when in focus */
+.form-control:focus {
+  border-color: maroon;
+  box-shadow: 0 0 0 0.2rem rgba(50, 115, 220, 0.25);
+}
+
+.loginBackground {
+  background: linear-gradient(rgb(63, 4, 4), #34083f);
+  margin: 7% auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+#page-title {
+  font-family: 'Kanit', sans-serif;
+  color: white;
+}
+
+/* signup ------------------------------------------------------------------------------*/
+.signupBackground {
+  background: linear-gradient(rgb(63, 4, 4), #34083f);
+  margin: 7% auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.passChar {
+  color: aliceblue;
+}
+
+/* Profile ------------------------------------------------------------------------------*/
+
+.myProfile{
+  background: linear-gradient(135deg, #e6dada 30%, rgb(121, 121, 121) 100%);
 }
