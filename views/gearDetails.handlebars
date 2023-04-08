@@ -12,12 +12,13 @@
             <p id="costPerDay" data-amount={{ gear.cost_per_day }}>Daily rate: ${{ gear.cost_per_day }}</p>
             <p>Product Owner: {{ gear.user.username }}</p>
             <p>Product Rating: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
-            {{#if  gear.available }}
-            <button id="request-borrow" data-id="{{gear.id}}" data-owner="{{gear.owner_id}}" type="submit">Request Borrow</button>
+            {{#if gear.available }}
+            <button id="request-borrow" data-id="{{gear.id}}" data-owner="{{gear.owner_id}}" type="submit">Request
+                Borrow</button>
             {{/if}}
             <h2>Ratings</h2>
             {{#each ratingData as |rating|}}
-                {{> detailRating }}
+            {{> detailRating }}
             {{/each}}
         </div>
     </div>
