@@ -1,5 +1,16 @@
 {{!-- Showcasing EACH Products in the homepage w/ height and md-3 (columns) and mb-4(margin bottom 4) --}}
 <div class="container homeProducts">
+  <form class="search-form" method="get">
+      <select id="category" name="category">
+        <option value="" disabled selected>SELECT CATEGORY</option>
+        <option value='LENSES'>LENSES</option>
+        <option value='BODY'>BODY</option>
+        <option value='FLASH'>FLASH</option>
+        <option value='LIGHTS'>LIGHTS</option>
+      </select>
+      <button id="search-btn" name="search" type="submit">Search</button>
+      <button id="clear-btn" name="clear" type="submit">Clear</button>
+    </form>
     <h2 class="additions col-md-3">Latest Additions</h2>
     <div class="row">
         {{#each list as |gear|}}
@@ -17,6 +28,9 @@
                 </div>
             </div>
         </div>
-        {{/each}}
+      </div>
     </div>
+    {{/each}}
+  </div>
 </div>
+ <script src="/js/search.js"></script>
