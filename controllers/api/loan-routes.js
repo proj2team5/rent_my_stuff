@@ -3,6 +3,7 @@ const { Loan } = require('../../models');
 const { Op } = require("sequelize");
 
 router.post('/', async (req, res) => {
+
   try {
     const newLoan = await Loan.create({
       ...req.body,
@@ -44,7 +45,10 @@ router.delete('/:id', async (req, res) => {
     const loanData = await Loan.destroy({
       where: {
         id: req.params.id,
-        owner_id: req.session.user_id,
+        [Op.or]: [
+          { owner_id: req.session.user_id },
+          { borrower_id: req.session.user_id }
+        ],
       },
     });
 

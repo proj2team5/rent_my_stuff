@@ -1,14 +1,20 @@
-<div class="row">
-    {{#each list as |gear|}}
-    <div class="col-md-3">
-        <div class="card">
-            <img class="card-img-top" src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ gear.product_name }}</h5>
-                <p>${{ gear.cost_per_day }} per day</p>
-                <a href="/gear/{{ gear.id }}" class="btn btn-primary">View Details</a>
+{{!-- Showcasing EACH Products in the homepage w/ height and md-3 (columns) and mb-4(margin bottom 4) --}}
+<div class="container">
+    <h2>Latest Additions</h2>
+    <div class="row mx-auto card-deck">
+        {{#each list as |gear|}}
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <img class="card-img-top" src="{{ gear.image_url }}" alt="{{ gear.product_name }}">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ gear.product_name }}</h5>
+                    <p class="card-text mb-0">${{ gear.cost_per_day }} per day</p>
+                    <div class="mt-auto">
+                        <a href="/gear/{{ gear.id }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
             </div>
         </div>
+        {{/each}}
     </div>
-    {{/each}}
 </div>

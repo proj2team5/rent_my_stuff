@@ -5,12 +5,11 @@ const deleteListingHandler = async (event) => {
 
     const response = await fetch(`/api/gear/${listingId}`, {
         method: 'DELETE',
-        body: JSON.stringify({ gear_id: listingId }),
         headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-        document.location.replace('/');
+        document.location.replace('/users');
     } else {
         alert('Failed to delete post.');
     }
