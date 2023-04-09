@@ -1,71 +1,18 @@
 const searchFormHandler = async (event) => {
+    // handles submission of search form
+    // by recalling the home route with a query parameter of filter
+    // the filter query parameter is equal to the value of the category selected by the user
     event.preventDefault();
     var categoryEL = document.querySelector('#category').value;
-
-    if (categoryEL === 'LENSES') {
-        const response = await fetch(`/`, {
-            method: 'GET',
-        });
-        if (response.ok) {
-            document.location.replace('/?filter=LENSES');
-        } else {
-            alert('Failed to filter listings');
-        }
-    }
-    else if (categoryEL === 'BODY') {
-        const response = await fetch(`/`, {
-            method: 'GET',
-        });
-        if (response.ok) {
-            document.location.replace('/?filter=BODY');
-        } else {
-            alert('Failed to filter listings');
-        }
-    }
-    else if (categoryEL === 'FLASH') {
-        const response = await fetch(`/`, {
-            method: 'GET',
-        });
-        if (response.ok) {
-            document.location.replace('/?filter=FLASH');
-        } else {
-            alert('Failed to filter listings');
-        }
-    }
-    else if (categoryEL === 'LIGHTS') {
-        const response = await fetch(`/`, {
-            method: 'GET',
-        });
-        if (response.ok) {
-            document.location.replace('/?filter=LIGHTS');
-        } else {
-            alert('Failed to filter listings');
-        }
-    }  
-    else {
-        const response = await fetch(`/`, {
-            method: 'GET',
-        });
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert('Failed to clear filter');
-        }
-        console.log('Failed to filter listings')
+    if (categoryEL){
+        document.location.replace(`/?filter=${categoryEL}`); //recall the home route with a filter query parameter
     }
 };
 
 const clearFormHandler = async (event) => {
+    // recalls the home route without query param to see all categories
     event.preventDefault();
-
-    const response = await fetch(`/`, {
-        method: 'GET',
-    });
-    if (response.ok) {
-        document.location.replace('/');
-    } else {
-        alert('Failed to clear filter');
-    }
+    document.location.replace('/');
 };
 
 document
@@ -74,4 +21,4 @@ document
 
 document
     .querySelector("#clear-btn")
-    .addEventListener("submit", clearFormHandler);
+    .addEventListener("click", clearFormHandler);

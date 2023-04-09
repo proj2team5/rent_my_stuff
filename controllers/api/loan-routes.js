@@ -1,9 +1,11 @@
 const router = require('express').Router();
 const { Loan } = require('../../models');
-const { Op } = require("sequelize");
+const { Op } = require("sequelize"); // Operation function from sequelize
+// this module holds all the api routes related to the loan object
 
+// create a new loan instance
 router.post('/', async (req, res) => {
-
+  // grab request body and enrich it with borrower_id data retrieved from the session object
   try {
     const newLoan = await Loan.create({
       ...req.body,
@@ -15,14 +17,14 @@ router.post('/', async (req, res) => {
   }
 });
 
-
+// updated loan instance
 router.put('/:id', async (req, res) => {
   try {
-    const loanData = await Loan.update(req.body,
+    const loanData = await Loan.update(req.body, // updating loan instance the matched the id, and owner or borrower
       {
       where: {
         id: req.params.id,
-        [Op.or]: [
+        [Op.or]: [ // by default Where uses Op.and but since we need to allow both the owner and borrower to update the loan we use Op.or
             { owner_id: req.session.user_id },
             { borrower_id: req.session.user_id }
         ],
@@ -39,13 +41,13 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-
+// delete loan instance
 router.delete('/:id', async (req, res) => {
   try {
-    const loanData = await Loan.destroy({
+    const loanData = await Loan.destroy({ // deleting loan instance the matched the id, and owner or borrower
       where: {
         id: req.params.id,
-        [Op.or]: [
+        [Op.or]: [ // by default Where uses Op.and but since we need to allow both the owner and borrower to update the loan we use Op.or
           { owner_id: req.session.user_id },
           { borrower_id: req.session.user_id }
         ],

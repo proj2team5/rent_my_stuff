@@ -14,28 +14,30 @@ Gear.belongsTo(User, {
 });
 
 
-// LOAN association to USER
+//  LOAN association to USER
 User.hasMany(Loan, {
   foreignKey: 'owner_id',
-  as: 'items_lent',
+  as: 'items_lent', //since loan model references the user model in two different field we use an alias for future querying
   onDelete: 'CASCADE'
 });
 
 Loan.belongsTo(User, {
   foreignKey: 'owner_id',
-  as: 'lender'
+  as: 'lender' //since user model will is referenced in two different field we use an alias for future querying
 });
 
 User.hasMany(Loan, {
     foreignKey: 'borrower_id',
-    as: 'items_borrowed',
+    as: 'items_borrowed', //since loan model references the user model in two different field we use an alias for future querying
     onDelete: 'NO ACTION'
 });
 
 Loan.belongsTo(User, {
     foreignKey: 'borrower_id',
-    as: 'borrower'
+    as: 'borrower' //since user model will is referenced in two different field we use an alias for future querying
 });
+////////////////////////////////////////////////////////////////
+
 
 // LOAN association to GEAR
 Gear.hasMany(Loan, {
@@ -46,6 +48,9 @@ Gear.hasMany(Loan, {
 Loan.belongsTo(Gear, {
   foreignKey: 'product_id',
 });
+////////////////////////////////////////////////////////////////
+
+
 
 // RATINGS association to GEAR
 Gear.hasMany(Rating, {
@@ -56,7 +61,7 @@ Gear.hasMany(Rating, {
 Rating.belongsTo(Gear, {
   foreignKey: 'product_id',
 });
-
+////////////////////////////////////////////////////////////////
 
 // RATINGS association to USER
 User.hasMany(Rating, {
@@ -67,5 +72,5 @@ User.hasMany(Rating, {
 Rating.belongsTo(User, {
   foreignKey: 'user_id',
 });
-
+////////////////////////////////////////////////////////////////
 module.exports = { User, Gear, Loan, Rating };

@@ -13,8 +13,10 @@
             <p>Product Owner: {{ gear.user.username }}</p>
             <p>Product Rating: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
             {{#if gear.available }}
-            <button id="request-borrow" data-id="{{gear.id}}" data-owner="{{gear.owner_id}}" type="submit">Request
+            {{#unless (same_user gear.owner_id user_id)}}
+            <button class="btn btn-primary" id="request-borrow" data-id="{{gear.id}}" data-owner="{{gear.owner_id}}" type="submit">Request
                 Borrow</button>
+            {{/unless}}
             {{/if}}
             <h2>Ratings</h2>
             {{#each ratingData as |rating|}}
