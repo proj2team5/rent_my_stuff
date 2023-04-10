@@ -1,24 +1,24 @@
 {{!-- Showcasing details of the selected gear --}}
 <div class="container">
-    <div class="row">
+    <div class="row product-details p-3">
         <div class="col-md-6">
             <img src="{{ gear.image_url }}" alt="{{ gear.product_name }}" class="img-fluid">
         </div>
         <div class="col-md-6">
             <h2>Product Details</h2>
-            <p>Product name: {{ gear.product_name }}</p>
-            <p>Description: {{ gear.description }}</p>
-            <p>Is it available: {{ gear.available }}</p>
-            <p id="costPerDay" data-amount={{ gear.cost_per_day }}>Daily rate: ${{ gear.cost_per_day }}</p>
-            <p>Product Owner: {{ gear.user.username }}</p>
-            <p>Product Rating: {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
+            <p><strong>Product name:</strong> {{ gear.product_name }}</p>
+            <p><strong>Description:</strong> {{ gear.description }}</p>
+            <p><strong>Is it available:</strong> {{ gear.available }}</p>
+            <p id="costPerDay" data-amount={{ gear.cost_per_day }}><strong>Daily rate:</strong> ${{ gear.cost_per_day }}</p>
+            <p><strong>Product Owner:</strong> {{ gear.user.username }}</p>
+            <p><strong>Product Rating:</strong> {{ avg_rating }}/5 Based on {{number_of_reviews}} reviews</p>
             {{#if gear.available }}
             {{#unless (same_user gear.owner_id user_id)}}
             <button class="btn btn-primary" id="request-borrow" data-id="{{gear.id}}" data-owner="{{gear.owner_id}}" type="submit">Request
                 Borrow</button>
             {{/unless}}
             {{/if}}
-            <h2>Ratings</h2>
+            <h2 class="py-3">Ratings</h2>
             {{#each ratingData as |rating|}}
             {{> detailRating }}
             {{/each}}

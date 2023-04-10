@@ -4,7 +4,7 @@
         <div class="p-2">
             <a class="navbar-brand" href="/">
                 <img class="logo img-fluid" src="/images/cameraShare_logo.png" alt="logo"
-                    style="width: 200px; height: 200px;">
+                    style="width: 175px; height: 175px;">
             </a>
         </div>
         <div class="navbar-brand d-flex justify-content-center flex-grow-1">
@@ -20,11 +20,11 @@
         </li>
         {{#if loggedIn}}
         <li class="nav-item flex-fill">
-            <button id="logout" class="login-link btn btn-danger">Logout</button>
+            <button id="logout" class="login-link btn btn-outline-danger">Logout</button>
         </li>
         {{else}}
         <li class="nav-item flex-fill">
-            <a id="login" class="nav-link login-link btn btn-primary" href="/users/login">Login</a>
+            <a id="login" class="nav-link login-link btn btn-outline-light" href="/users/login">Login</a>
         </li>
         {{/if}}
     </ul>
