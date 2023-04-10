@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// create gear model inheriting from sequelize model class
 class Gear extends Model {}
 
 Gear.init(
@@ -19,7 +20,7 @@ Gear.init(
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      image_url: {
+      image_url: { // will be a relative path to the image
         type: DataTypes.STRING,
       },
       cost_per_day: {
@@ -27,7 +28,7 @@ Gear.init(
         allowNull: false,
       },
       category: {
-        type: DataTypes.ENUM('LENSES', 'BODY','FLASH','LIGHTS'),
+        type: DataTypes.ENUM('LENSES', 'BODY','FLASH','LIGHTS'), // we use enums to restrict the possible values of the categories
         allowNull: false,
       },
       available: {
@@ -38,7 +39,7 @@ Gear.init(
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
-      owner_id: {
+      owner_id: { //owner_id will be foreign key to user model
         type: DataTypes.INTEGER,
         references: {
           model: 'user',

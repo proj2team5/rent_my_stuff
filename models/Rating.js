@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// create rating model inheriting from sequelize model class
 class Rating extends Model {}
 
 Rating.init(
@@ -11,14 +12,14 @@ Rating.init(
         primaryKey: true,
         autoIncrement: true,
       },
-      user_id: {
+      user_id: { //user_id will be foreign key to user model
         type: DataTypes.INTEGER,
         references: {
           model: 'user',
           key: 'id',
         },
       },
-      product_id: {
+      product_id: { //product_id will be foreign key to gear model
         type: DataTypes.INTEGER,
         references: {
           model: 'gear',
@@ -26,10 +27,10 @@ Rating.init(
         },
       },
       type: {
-        type: DataTypes.ENUM('LENDER', 'BORROWER'),
+        type: DataTypes.ENUM('LENDER', 'BORROWER'), // we use enums to restrict the possible values of the rate type
         allowNull: false,
       },
-      rating: {
+      rating: { // rating must be a value from 0 to 5
         type: DataTypes.INTEGER,
         validate: {
             max: 5,

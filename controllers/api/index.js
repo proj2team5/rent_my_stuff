@@ -4,6 +4,7 @@ const gearRoutes = require('./gear-routes');
 const loanRoutes = require('./loan-routes');
 const ratingRoutes = require('./rating-routes');
 
+//connecting routes with modules
 router.use('/users', userRoutes);
 router.use('/gear', gearRoutes);
 router.use('/loans', loanRoutes);

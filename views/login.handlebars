@@ -1,31 +1,42 @@
 <!--Login-->
 <div class="row">
-    <div class="w-50 col-md-8 mx-auto">
-        <h2 id="page-title">Login Page</h2>
+    <div class="w-50 col-md-8 mx-auto loginBackground">
+        <h2 id="page-title">Login</h2>
 
         <form class="form login-form">
 
             <div class="form-group mt-3">
-                <label for="username-login">Username:</label>
-                <input class="form-input" type="text" id="username-login" />
+                <div class="input-group align-items-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg rounded-pill" type="text" id="username-login"
+                        placeholder="Username" />
+                </div>
             </div>
 
             <div class="form-group mt-3">
-                <label for="password-login">Password:</label>
-                <input class="form-input" type="password" id="password-login" />
+                <div class="input-group align-items-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg rounded-pill" type="password" id="password-login"
+                        placeholder="Password" />
+                </div>
             </div>
 
-            <div class="form-group mt-3">
+            <div class="form-group mt-4">
                 <button id="login" class="btn btn-primary" type="submit">Login</button>
             </div>
 
         </form>
 
-        <div>
+        <div class="signup-link">
             <br>
-            <a href="/users/signup">Register here!</a>
+            <a href="/users/signup">Don't have an account? Register here!</a>
         </div>
 
     </div>
 
     <script src="/js/login.js"></script>
+</div>

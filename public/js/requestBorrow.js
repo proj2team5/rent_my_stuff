@@ -1,11 +1,11 @@
 
-
-
 const requestButtonHandler = async (event) => { 
+//this function send out borrow request by creating a new loan request
 
+    // pulling data from data attribute in button
     const gearid = requestButton.dataset.id
     const ownerid = requestButton.dataset.owner
-    console.log(gearid)
+    // create a new loan instance with status REQUESTED
     const loanResponse = await fetch(`/api/loans`, {
         method: 'POST',
         body: JSON.stringify(
@@ -18,7 +18,7 @@ const requestButtonHandler = async (event) => {
         ),
         headers: { 'Content-Type': 'application/json' },
     });
-
+    // redirected from ger detail page to user page where you can see the item you just requested
     if (loanResponse.ok) {
     document.location.replace('/users');
     } else {
