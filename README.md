@@ -91,7 +91,7 @@ Please make a .env file for user details, this is sensitive information.
 
 ## Usage
 
-Deployed Link:  https://still-mountain-71352.herokuapp.com/
+Deployed Link:  https://guarded-reaches-91931.herokuapp.com/
 
 Instructions: Once in the website you can make a user profile (through register). You can look through the products... then borrow from the homepage. My profile tab-link enables you to add a listing. For customer service, there is a link in the footer if issues arise.
 
