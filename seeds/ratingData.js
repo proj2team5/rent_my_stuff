@@ -2,7 +2,7 @@ const { Rating } = require('../models');
 
 const ratingdata = [
     {
-        user_id: 5,
+        user_id: 1,
         product_id: 1,
         type: 'BORROWER',
         rating: 5,

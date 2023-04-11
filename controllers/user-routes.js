@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Gear, Rating, Loan  } = require('../models');
 const withAuth = require('../utils/auth');
 router.get('/', withAuth,async (req, res) => {
-    console.log(req.session.user_id)
+
     try {
         const userData = await User.findByPk(req.session.user_id, { //get user data for the current logged in user
           include: [ // include the gear belonging to the user
@@ -11,17 +11,35 @@ router.get('/', withAuth,async (req, res) => {
             },
             {
               model: Loan,
-              as: "items_lent"
+              as: "items_lent",
+              include: [ 
+                {
+                  model: User,
+                  as: "borrower",
+                  include: [ 
+                    {
+                      model: Rating
+                    } 
+                  ]
+                },
+                {
+                  model: Gear,
+                }
+              ],
             },
             {
               model: Loan,
-              as: "items_borrowed"
+              as: "items_borrowed",
+              include: [ 
+                {
+                  model: Gear,
+                }
+              ]
             }
           ],
         });
         
         const user = userData.get({ plain: true });
-        console.log(user)
         res.render('profile', { 
           user,  // pass in user data
           loggedIn: req.session.loggedIn, // pass in the logged in boolean
@@ -72,8 +90,9 @@ router.get('/rate/:id', async (req, res) => {
   try {
       const user_id = req.params.id;
       const rating_type = req.query.type
-      const user = userData.get({ plain: true });
-      res.render('rate', { 
+      const gearID = req.query.gearid
+      res.render('rate', {
+        gearID, 
         user_id,  // pass in user id
         rating_type, // pass in rating type
         loggedIn: req.session.loggedIn, // pass in the logged in boolean

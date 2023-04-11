@@ -1,30 +1,49 @@
-<form class="addListing" enctype="multipart/form-data" method="post">
-    <div class="form-group">
-        <label for="product_name">Listing Name:</label>
-        <input class="form-input" type="text" id="product_name" />
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form class="addListing" enctype="multipart/form-data" method="post">
+                <div class="form-group row mb-3">
+                    <label for="product_name" class="col-sm-3 col-form-label">Listing Name:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" id="product_name" />
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="description" class="col-sm-3 col-form-label">Description:</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" id="description" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="category" class="col-sm-3 col-form-label">Category:</label>
+                    <div class="col-sm-9">
+                        <select name="category" id="category" class="form-control">
+                            {{#each categories as |category|}}
+                            <option value="{{category}}">{{category}}</option>
+                            {{/each}}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="cost_per_day" class="col-sm-3 col-form-label">Cost Per Day:</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="text" id="cost_per_day" />
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <label for="img_file" class="col-sm-3 col-form-label">Image:</label>
+                    <div class="col-sm-9">
+                        <input type="file" class="form-control-file" name="img_file" id="img_file">
+                    </div>
+                </div>
+                <div class="form-group row mb-3">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-9">
+                        <button type="submit" class="btn btn-primary">Add Listing</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="description">Description:</label>
-        <textarea class="form-input" id="description"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="category">Category:</label>
-        <select name="category" id="category">
-            {{#each categories as |category|}}
-                <option value="{{category}}">{{category}}</option>
-            {{/each}}
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="cost_per_day">Cost Per Day:</label>
-        <input class="form-input" type="text" id="cost_per_day" />
-    </div>
-    <div class="form-group">
-        <label for="img_file">image:</label>
-        <input type="file" class="form-control" name="img_file" id="img_file">
-    </div>
-    <div class="form-group">
-        <button type="submit" class="btn">Add Listing</button>
-    </div>         
-</form>
+</div>
 <script src="/js/addListing.js"></script>
