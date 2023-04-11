@@ -1,32 +1,235 @@
-:root {
-  --background: #1B2021;
-  --primary: #30343F;
-  --nav: #89023E;
-  --secondary: #FFD9DA;
-  --highlights: #EA638C;
+* {
+  box-sizing: border-box;
 }
 
-body {
-  background-color: var(--background);
+body,
+html {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  background-image: linear-gradient(180deg, #4dd5f7, #7b93f3, #b05ff7, #a64ef3);
+  /*#20caf5, #5a78f0, #9c37f5, #9022f0*/
+  background-attachment: fixed;
 }
 
-.container{
-  background-color: var(--primary);
+p {
+  font-weight: bold;
 }
 
-.card {
-  background-color: var(--secondary);
+label {
+  font-weight: bold;
 }
 
-.btn-primary{
-  background-color: var(--highlights);
-}
-
+/* Navbar Styling ------------------------------------------------------------------------------*/
 .navbar {
-  background-color: var(--nav);
-  color: var(--secondary);
+  background-color: #313339 !important;
+  /*#36393f*/
+  padding: 15px;
+  margin-bottom: 60px;
+  /* Set the navbar background color to a dark grey */
 }
 
-.nav-link{
-  color: var(--secondary);
+/* Navbar links */
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  /* Set the color of the navbar links to white */
+  font-size: 24px;
+  /* increase font size */
+  margin-right: 30px;
+  /* add margin to the right */
+}
+
+/* Navbar link hover */
+.navbar-nav .nav-link:hover {
+  /*color: rgb(98, 0, 128)!important;*/
+  color: #a166b3 !important;
+}
+
+/* font of company name */
+.navbar-brand h1 {
+  font-family: 'Kanit', sans-serif;
+  font-weight: 600;
+}
+
+/* Box around camGear */
+.camGear {
+  background-color: rgb(73, 1, 1);
+  color: white;
+  padding: 0.2em 0.5em;
+  border-radius: 0.25em;
+  font-size: 60px;
+}
+
+/* Adjust font family and weight */
+.navbar-brand h1 {
+  font-family: 'Kanit', sans-serif;
+  color: white;
+  font-weight: 600;
+}
+
+/* Adjust font color */
+.navbar-brand h1 span {
+  color: white;
+  font-weight: 600;
+}
+
+.navbar-nav .login-link {
+  font-size: 24px;
+  /* increase font size */
+  margin-right: 20px;
+  /* add margin to the right */
+}
+
+/* Footer Styling ------------------------------------------------------------------------------*/
+.footer {
+  color: #ffffff;
+  margin-top: 12%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  background-color: #313339 !important;
+}
+
+.footer a {
+  color: #a64ef3;
+  text-decoration: none;
+}
+
+
+/* Homepage Styling ------------------------------------------------------------------------------*/
+
+/* Search Form */
+.search-form {
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
+.search-form select {
+  border-radius: 0.25em;
+  padding: 9px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+/* Latest Additions Tag */
+.additions {
+  background-color: rgb(73, 1, 1);
+  font-family: 'Kanit', sans-serif;
+  color: white;
+  padding: 0.2em 0.5em;
+  border-radius: 0.25em;
+  /*width: fit-content;*/
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* color for card */
+.homeProducts .card {
+  background: linear-gradient(135deg, #f0e9e9 20%, #8c8c8c 100%);
+  /*rgb(121, 121, 121)*/
+}
+
+/* card transition hover */
+.card {
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* login ------------------------------------------------------------------------------*/
+
+/* Increase icon size */
+.input-group-prepend {
+  margin-right: 10px;
+}
+
+.input-group-prepend input {
+  font-size: 1.5rem;
+}
+
+.input-group .input-group-prepend .input-group-text i {
+  font-size: 1.8rem;
+}
+
+/* Add margin to space out icons from textboxes */
+.input-group .input-group-prepend .input-group-text {
+  margin-right: 10px;
+}
+
+/* Add margin to the left of the placeholder text */
+.form-control::placeholder {
+  margin-left: 3rem;
+}
+
+/* Style the input boxes when in focus */
+.form-control:focus {
+  border-color: maroon;
+  box-shadow: 0 0 0 0.2rem rgba(50, 115, 220, 0.25);
+}
+
+.loginBackground {
+  background: linear-gradient(rgb(63, 4, 4), #34083f);
+  margin: 7% auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+#page-title {
+  font-family: 'Kanit', sans-serif;
+  color: white;
+}
+
+.signup-link a {
+  text-decoration: none;
+}
+
+/* signup ------------------------------------------------------------------------------*/
+.signupBackground {
+  background: linear-gradient(rgb(63, 4, 4), #34083f);
+  margin: 7% auto;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.passChar {
+  color: aliceblue;
+  margin-top: 8px;
+  font-size: 0.9rem;
+  margin-left: 90px;
+  margin-bottom: 20px;
+}
+
+/* Profile ------------------------------------------------------------------------------*/
+
+.myProfile {
+  background: linear-gradient(135deg, #f0e9e9 20%, #8c8c8c 100%); /*(135deg, #e6dada 30%, rgb(121, 121, 121) 100%)*/
+}
+
+.new-listing {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.update {
+  width: fit-content; 
+}
+
+.update-btn {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.request {
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+}
+
+
+
+.product-details {
+  background-color: #ffffff;
+  border-radius: 0.25rem;
 }

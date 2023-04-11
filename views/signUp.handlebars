@@ -1,44 +1,48 @@
 <!--Sign Up-->
-<div class="p-4 flex flex-row gap-6 w-[75%] items-center shadow-xl rounded-xl bg-[#E0D2C7]">
+<div class="row">
+    <div class="w-50 col-md-8 mx-auto signupBackground">
+        <h2 id="page-title">Sign up</h2>
 
- <div class="text-center tracking-[2vw] text-[#44B09E] font-bold">
-    <h2 id="page-title text-center">Sign Up</h2>
-  </div>
-  <div class=" border h-[35vh] border-white"></div>
+        <form class="form signup-form">
 
-    <form class="form signup-form flex flex-col items-center gap-6 flex-1">
-        <div class="form-group mt-3 w-full">
-            <fieldset class="border-2 border-[#44B09E] text-[#44B09E] rounded-xl">
-            <legend for="username-signup" class="font-semibold mx-2 text-white">Username:</legend>
-            <input class="form-input bg-transparent outline-none p-2 w-full" type="text" id="username-signup" />
-            </fieldset>
-        </div>
+            <div class="form-group mt-3">
+                <div class="input-group align-items-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg rounded-pill" type="text" id="username-signup"
+                        placeholder="Username" />
+                </div>
+            </div>
 
-        <div class="form-group mt-3 w-full">
-            <fieldset class="border-2 text-[#44B09E] border-[#44B09E] rounded-xl">
-            <legend for="email-signup" class="font-semibold mx-2 text-white">Email:</legend>
-            <input class="form-input bg-transparent outline-none p-2 w-full" type="text" id="email-signup" />
-            </fieldset>
-        </div>
+            <div class="form-group mt-3">
+                <div class="input-group align-items-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg rounded-pill" type="text" id="email-signup"
+                        placeholder="Email" />
+                </div>
+            </div>
 
-        <div class="form-group mt-3 w-full">
-            <fieldset class="border-2 text-[#44B09E] border-[#44B09E] rounded-xl">
-            <legend for="password-login" class="text-white font-semibold mx-2">Password:</legend>
-            <input class="form-input bg-transparent outline-none p-2 w-full" type="password" id="password-signup" placeholder="Password must be at least 7 characters long"/>
-            </fieldset>
-        </div>
+            <div class="form-group mt-3">
+                <div class="input-group align-items-center">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                    </div>
+                    <input class="form-control form-control-lg rounded-pill" type="password" id="password-signup"
+                        placeholder="Password" />
+                </div>
+                <p class="passChar">Password must be atleast 7 characters long.</p>
+            </div>
 
-        <div class="form-group">
-            <button id="login" class="text-white bg-[#44B09E] hover:shadow-lg hover:bg-emerald-400 rounded-2xl p-2 px-6" type="submit">Register</button>
-        </div>
+            <div class="form-group mt-3">
+                <button id="signup" class="btn btn-primary" type="submit">Register</button>
+            </div>
 
-    <a class="hover:text-white font-medium text-blue-800 hover:bg-emerald-400 px-6 py-1 rounded-2xl" href="/users/login">Login here</a>
+        </form>
 
+    </div>
 
-    </form>
-
+    <script src="/js/signup.js"></script>
 </div>
-
-</div>
-
-<script src="/js/signup.js"></script>

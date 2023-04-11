@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+// create loan model inheriting from sequelize model class
 class Loan extends Model {}
 
 Loan.init(
@@ -11,7 +12,7 @@ Loan.init(
         primaryKey: true,
         autoIncrement: true,
       },
-      product_id: {
+      product_id: { //product_id will be foreign key to gear model
         type: DataTypes.INTEGER,
         references: {
           model: 'gear',
@@ -23,7 +24,7 @@ Loan.init(
         allowNull: false,
       },
       status: {
-        type: DataTypes.ENUM('REQUESTED', 'DENIED','RECEIVED','RETURNED'),
+        type: DataTypes.ENUM('REQUESTED', 'DENIED','RECEIVED','RETURNED'), // we use enums to restrict the possible values of status a loan can be in
         allowNull: false,
       },
       received_date: {
@@ -32,14 +33,14 @@ Loan.init(
       returned_date: {
         type: DataTypes.DATE,
       },
-      owner_id: {
+      owner_id: { //owner_id will be foreign key to user model 
         type: DataTypes.INTEGER,
         references: {
           model: 'user',
           key: 'id',
         },
       },
-      borrower_id: {
+      borrower_id: { //borrower_id will be foreign key to user model 
         type: DataTypes.INTEGER,
         references: {
           model: 'user',
@@ -48,16 +49,6 @@ Loan.init(
       },
     },
     {
-      hooks: {
-        beforeUpdate: async (loanData) => {
-          if (loanData.status === "RECEIVED"){
-            loanData.received_date = Date.now();
-          }else if (loanData.status === "RETURNED"){
-            loanData.returned_date = Date.now();
-          }
-          return loanData;
-        },
-      },
       sequelize,
       timestamps: false,
       freezeTableName: true,

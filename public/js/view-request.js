@@ -6,6 +6,7 @@ var requestSection = document.querySelector(".request");
 viewRequestBtn.addEventListener('click', viewRequest);
 
 function viewRequest() {
-    viewRequestSection.style.display = "none";
+    // hide the section that shows the count of request and show the actual request
+    viewRequestSection.style.display = "none"; 
     requestSection.style.display = "block";
 };

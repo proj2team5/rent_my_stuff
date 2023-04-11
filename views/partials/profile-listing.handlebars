@@ -1,9 +1,12 @@
-<div class="col-md-3 mb-4">
+{{!-- Partial to display the products the the user owns, will be used in the profile --}}
+<div class="col mb-4">
     <div class="card h-100">
         <img class="card-img-top" src="{{ image_url }}" alt="{{ product_name }}">
         <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ product_name }}</h5>
-            <a href="gear/update/{{id}}">Update</a>
+            <div class="my-3 btn btn-primary update">
+                <a class="update-btn" href="gear/update/{{id}}">Update</a>
+            </div>
         </div>
     </div>
 </div>
